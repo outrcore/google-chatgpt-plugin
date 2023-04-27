@@ -26,7 +26,7 @@ def get_plugin_info():
         return jsonify(data)
 
 @app.route('/', methods=['GET'])
-def get_plugin_info():
+def home():
     with open('.well-known/ai-plugin.json') as f:
         data = json.load(f)
         data['api']['url'] = f"{request.scheme}://{request.host}/.well-known/openapi.yaml"
