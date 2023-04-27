@@ -25,6 +25,15 @@ def get_plugin_info():
 
         return jsonify(data)
 
+@app.route('/', methods=['GET'])
+def get_plugin_info():
+    with open('.well-known/ai-plugin.json') as f:
+        data = json.load(f)
+        data['api']['url'] = f"{request.scheme}://{request.host}/.well-known/openapi.yaml"
+        data['logo_url'] = f"{request.scheme}://{request.host}/.well-known/icon.png"
+
+        return jsonify(data)
+
 @app.route('/.well-known/openapi.yaml', methods=['GET'])
 def get_openai_info():
     with open('.well-known/openapi.yaml') as f:
