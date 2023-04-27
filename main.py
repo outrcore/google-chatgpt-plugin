@@ -20,10 +20,11 @@ API_KEY, CX = load_environment_variables()
 def get_plugin_info():
     with open('.well-known/ai-plugin.json') as f:
         data = json.load(f)
-        data['api']['url'] = f"{request.scheme}://{request.host}/.well-known/openapi.yaml"
-        data['logo_url'] = f"{request.scheme}://{request.host}/.well-known/icon.png"
+        #data['api']['url'] = f"{request.scheme}://{request.host}/.well-known/openapi.yaml"
+        #data['logo_url'] = f"{request.scheme}://{request.host}/.well-known/icon.png"
 
-        return jsonify(data)
+        #return jsonify(data)
+        return (data)
 
 @app.route('/', methods=['GET'])
 def home():
