@@ -65,4 +65,4 @@ def serve_well_known_files(filename):
     return send_from_directory(os.path.join(os.getcwd(), ".well-known"), filename)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host='https://gptsearchplugin.herokuapp.com/', debug=True)
